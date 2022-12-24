@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var username: String = ""
+    @State private var password: String = ""
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(alignment: .center) {
+            Image(systemName: "heart")
+                .foregroundColor(.orange)
+               
+            TextField("Enter your name", text: $username)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+                .frame(maxWidth: .infinity)
+            
+            TextField("Enter your password", text: $password)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            Button("Login") {
+                print("Hello, \(username) \(password)!")
+            }
+            .buttonStyle(.borderedProminent)
+            
         }
-        .padding()
+        .fixedSize(horizontal: true, vertical: false)
     }
 }
 
